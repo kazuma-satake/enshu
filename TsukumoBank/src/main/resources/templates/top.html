@@ -5,14 +5,18 @@
 <title>Tsukumo Bank</title>
 </head>
 <body>
-	<p>hello, Tsukumon</p>
-	
 	<h1>都雲銀行</h1>
+
 	
-	<form>
-		<input type="button" href="@{Login}" value="ログイン">
-		<input type="button" href="@{NewRegister}"value="新規登録">
+	<form th:action="@{login}" method="get">
+	    <button type="submit" class="btn btn-primary">ログイン</button>
 	</form>
+	
+	<form th:action="@{new-register}" method="get">
+	    <button type="submit" class="btn btn-primary">新規登録</button>
+	</form>
+	
+	
 	
 </body>
 </html>
