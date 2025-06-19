@@ -10,4 +10,13 @@ public class Main_controller {
 		return "top";
 	}
 	//Tsukumo
+	@GetMapping("login")
+	public String goLogin() {
+		return "login";
+	}
+	
+	@GetMapping("new-register")
+	public String newRegister() {
+		return "new-register";
+	}
 }
