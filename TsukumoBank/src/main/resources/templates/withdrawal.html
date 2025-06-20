@@ -2,9 +2,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>出金</title>
 </head>
 <body>
+	
+	<form th:action="@{/result-withdrawal}" method="POST">
+		【出金額】<br>
+		<input type="text" name="valueWithdrawal" required="required"><br>
+			<br>
+		<input type="submit" value="次へ" class="btn">
+	</form>
 
 </body>
 </html>

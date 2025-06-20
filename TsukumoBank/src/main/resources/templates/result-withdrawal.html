@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>操作結果確認</title>
+</head>
+<body>
+	
+	<h1>お取引結果の確認</h1>
+	
+	<div th:object="${taskForm}">
+	   	【出金額】<br>
+	   	<p th:text="*{valueWithdrawal}"></p><br><br>
+	</div>
+	
+	<a th:href="@{/top}">トップページに戻る</a>
+
+</body>
+</html>

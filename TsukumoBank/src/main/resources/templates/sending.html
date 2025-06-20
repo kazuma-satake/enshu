@@ -2,9 +2,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>送金</title>
 </head>
 <body>
-
+	
+	<form th:action="@{/result-sending}" method="POST">
+		
+		【振込先口座番号】<br>
+		<input type="text" name="bankTransferId" required="required"><br>
+		<br>
+		【振込金額】<br>
+		<input type="text" name="valueSend" required="required"><br>
+		<br>
+		<input type="submit" value="次へ" class="btn">
+		
+	</form>
+	
 </body>
 </html>
