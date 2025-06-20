@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.demo.form.NewRegister;
 
 @Controller
-public class New_register {
+public class UserRegistController {
 	
 	@PostMapping("regist-review")
 	public String registerInfo(@ModelAttribute NewRegister form) {

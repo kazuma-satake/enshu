@@ -5,10 +5,16 @@
 
 <title>Tsukumo Bank</title>
 </head>
+
 <body>
 	<form>
 	   	ユーザID<br>
-	   	<input type="text" th:field="*{userId}">
+		<form th:object="${LoginForm}">
+	   	<input type="text" name="userId">
+		<br>
+		パスワード<br>
+		<form th:object="${LoginForm}">
+			<input type="text" name="password">
 		<br>
 	</form>
 
