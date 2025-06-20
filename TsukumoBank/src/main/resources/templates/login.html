@@ -7,15 +7,14 @@
 </head>
 
 <body>
-	<form>
-	   	ユーザID<br>
-		<form th:object="${LoginForm}">
-	   	<input type="text" name="userId">
+	<form th:action="@{/select-operation}" method="POST"></form>
+		   	ユーザID<br>
+	   	<input type="text" name="userId" required="required">
 		<br>
 		パスワード<br>
-		<form th:object="${LoginForm}">
-			<input type="text" name="password">
+			<input type="text" name="password" required="required">
 		<br>
+		<input type="submit" value="次へ" class="btn">
 	</form>
 
 </body>
