@@ -2,11 +2,12 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 //http://localhost:8080/top
 
 @Controller
-public class Main_controller {
+public class MainController {
 	@GetMapping("top")
 	public String showMainMenu() {
 		return "top";
@@ -21,4 +22,5 @@ public class Main_controller {
 	public String newRegister() {
 		return "new-register";
 	}
+	
 }
