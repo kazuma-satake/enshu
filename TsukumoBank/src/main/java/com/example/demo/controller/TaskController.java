@@ -4,13 +4,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.form.NewRegister;
+import com.example.demo.form.LoginForm;
+import com.example.demo.form.TaskForm;
 
 @Controller
 public class TaskController {
 	
 	@PostMapping("select-operation")
-	public String registerInfo(@ModelAttribute NewRegister form) {
+	public String showSelectOperation(@ModelAttribute LoginForm form) {
 		return "select-operation";
 	}
+	@PostMapping("deposit")
+	public String showDeposit(@ModelAttribute TaskForm form) {
+		return "deposit";
+	}
+	
+	@PostMapping("withdrawal")
+	public String showWithdrawal(@ModelAttribute TaskForm form) {
+		return "withdrawal";
+	}
+	
+	@PostMapping("sending")
+	public String showSending(@ModelAttribute TaskForm form) {
+		return "sending";
+	}
+	
+	
+
 }

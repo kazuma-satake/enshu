@@ -6,7 +6,17 @@
 </head>
 <body>
 	
-	<p>機能選択画面</p>
-
+		<form th:action="@{/deposit}" method="POST">
+			<input type="submit" value="入金" class="btn">
+		</form>
+		
+		<form th:action="@{/withdrawal}" method="POST">
+			<input  type="submit" value="出金" class="btn">
+		</form>
+		
+		<form th:action="@{/sending}" method="POST">
+			<input type="submit" value="送金" class="btn">
+		</form>	
+		
 </body>
 </html>
