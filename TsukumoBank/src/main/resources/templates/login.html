@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
 
-<title>Tsukumo Bank</title>
+<head>
+	<meta charset="UTF-8">
+	<title>Tsukumo Bank</title>
 </head>
 
 <body>
-	<form th:action="@{/select-operation}" method="POST"></form>
-		   	ユーザID<br>
-	   	<input type="text" name="userId" required="required">
+	<h1>画面</h1>
+
+
+	<form th:action="@{/select-operation}" method="POST">
+		【ユーザーID】<br>
+		<input type="text" name="userId" required="required"><br>
 		<br>
-		パスワード<br>
-			<input type="text" name="password" required="required">
+		【パスワード】<br>
+		<input type="text" name="password" required="required"><br>
 		<br>
+
 		<input type="submit" value="次へ" class="btn">
 	</form>
-
 </body>
+
 </html>
