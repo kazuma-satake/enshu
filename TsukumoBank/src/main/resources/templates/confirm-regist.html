@@ -6,7 +6,18 @@
 </head>
 <body>
 	
-	<p>入力内容確認</p>
+	<h1>入力内容確認</h1>
+	
+	<div th:object="${newRegister}">
+		【ユーザーID】<br>
+		<p th:text="*{userId}"></p><br><br>
+	   	【電話番号】<br>
+	   	<p th:text="*{phoneNumber}"></p><br><br>
+	   	【住所】<br>
+	   	<p th:text="*{address}"></p><br><br>
+	   	【暗証番号】<br>
+	   	<p th:text="*{passNumber}"></p><br><br>
+	</div>
 
 </body>
 </html>

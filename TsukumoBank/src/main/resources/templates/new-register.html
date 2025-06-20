@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-
-<title>Tsukumo Bank</title>
+	<meta charset="UTF-8">
+	<title>Tsukumo Bank</title>
 </head>
-<body>
-	<p>登録画面</p>
 
+<body>
+	<h1>画面</h1>
+
+
+	<form th:action="@{/regist-review}" method="POST">
+		【ユーザーID】<br>
+		<input type="text" name="userId"><br>
+		<br>
+		【電話番号】<br>
+		<input type="text" name="phoneNumber"><br>
+		<br>
+		【住所】<br>
+		<input type="text" name="address"><br>
+		<br>
+		【暗証番号】<br>
+		<input type="text" name="passNumber"><br>
+		<br>
+		<input type="submit" value="次へ" class="btn">
+	</form>
 </body>
+
 </html>
