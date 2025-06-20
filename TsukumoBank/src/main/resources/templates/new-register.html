@@ -12,16 +12,16 @@
 
 	<form th:action="@{/regist-review}" method="POST">
 		【ユーザーID】<br>
-		<input type="text" name="userId"><br>
+		<input type="text" name="userId" required="required"><br>
 		<br>
 		【電話番号】<br>
-		<input type="text" name="phoneNumber"><br>
+		<input type="text" name="phoneNumber" required="required"><br>
 		<br>
 		【住所】<br>
-		<input type="text" name="address"><br>
+		<input type="text" name="address" required="required"><br>
 		<br>
 		【暗証番号】<br>
-		<input type="text" name="passNumber"><br>
+		<input type="text" name="passNumber" required="required"><br>
 		<br>
 		<input type="submit" value="次へ" class="btn">
 	</form>
