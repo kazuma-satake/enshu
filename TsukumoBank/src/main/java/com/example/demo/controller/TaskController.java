@@ -29,6 +29,19 @@ public class TaskController {
 		return "sending";
 	}
 	
+	@PostMapping("result-deposit")
+	public String showResultDepo(@ModelAttribute TaskForm form) {
+		return "result-deposit";
+	}
+	@PostMapping("result-withdrawal")
+	public String showResultWith(@ModelAttribute TaskForm form) {
+		return "result-withdrawal";
+	}
+	
+	@PostMapping("result-sending")
+	public String showResultSend(@ModelAttribute TaskForm form) {
+		return "result-sending";
+	}
 	
 
 }
