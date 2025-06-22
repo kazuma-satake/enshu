@@ -2,15 +2,14 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-//http://localhost:8080/top
+
 
 @Controller
 public class MainController {
 	@GetMapping("top")
 	public String showMainMenu() {
-		return "top";
+		return "/top";
 	}
 	//Tsukumo
 	@GetMapping("login")
