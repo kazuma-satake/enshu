@@ -1,2 +1,47 @@
 @charset "UTF-8";
 
+header{
+	background-color: #a2a9b1;
+	border-radius: 5px;
+}
+
+body{
+	background-color: #c6dedf;
+}
+
+
+.title {
+	text-align: center;
+	font-size: 50px;
+	font-family:MS PGothic ;
+    color:#055d59;
+}
+
+.btn-primary {
+  display: inline-flex;
+  padding: 0.5em 1em;
+  font: inherit;
+  color: white;
+  text-align: left;
+  background-color: #3e8e9c;
+  border: 0;
+  border-radius: 0.25em;
+}
+
+.topbtn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn:hover {
+	color: #5bf8ce;
+	background-color:#a2a9b1;
+}
+
+h2 {
+	font-size: 28px;
+	background-color: green;
+	color: white;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
