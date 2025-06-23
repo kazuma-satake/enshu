@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.form.NewRegisterForm;
 
 //http://localhost:8080/top
 
@@ -19,8 +21,9 @@ public class MainController {
 	}
 	
 	@GetMapping("new-register")
-	public String newRegister() {
-		return "new-register";
-	}
+    public String newRegister(Model model) {
+        model.addAttribute("newRegisterForm", new NewRegisterForm());
+        return "new-register";
+    }
 	
 }

@@ -14,5 +14,6 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 	
 	public void add(NewUser newUser) {
 		System.out.println("登録しました。");
+		System.out.println(newUser);
 	}
 }
