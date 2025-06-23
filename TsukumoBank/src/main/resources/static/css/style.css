@@ -1,14 +1,58 @@
 @charset "UTF-8";
 
-header{
-	background-color: #a2a9b1;
-	border-radius: 5px;
+
+
+body {
+    background: linear-gradient(90deg, #ff0055, #00aaff);
+    background-size: 200% 200%;
+	animation:3s ease-in 3s infinite alternate forwards running gradientAnimation 
 }
 
-body{
-	background-color: #c6dedf;
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
+#box{
+	position: fixed;
+	top: 2%;
+	left: 0%;
+	display:block;
+	width:10px;
+	height:80px;
+	background:#00aaff;
+	animation-name:expansion;
+	animation-duration:2s;
+	animation-timing-function:ease-in;
+	animation-delay:1s;
+	animation-direction:alternate;
+	animation-fill-mode:forwards;
+	animation-play-state:running;
+}
+@keyframes expansion{
+  0%{
+    width:10%;
+  }
+  100%{
+    width:100%;
+    background:#ff0055;
+  }
+}
+
+h1{
+	color: white;
+}
+
+h2 {
+	font-size: 28px;
+	color: white;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
 
 .title {
 	text-align: center;
@@ -38,10 +82,3 @@ body{
 	background-color:#a2a9b1;
 }
 
-h2 {
-	font-size: 28px;
-	background-color: green;
-	color: white;
-	padding-top: 6px;
-	padding-bottom: 6px;
-}
