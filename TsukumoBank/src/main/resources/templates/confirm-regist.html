@@ -7,19 +7,19 @@
 </head>
 <body>
 	
-	<h1>入力内容確認</h1>
+	<h2>入力内容確認</h2>
 	
 	<div th:object="${newRegisterForm}">
-		【ユーザーID】<br>
-		<p th:text="*{userId}"></p><br><br>
-		【お名前】<br>
-		<p th:text="*{userName}"></p><br><br>
-	   	【電話番号】<br>
-	   	<p th:text="*{phoneNumber}"></p><br><br>
-	   	【住所】<br>
-	   	<p th:text="*{address}"></p><br><br>
-	   	【暗証番号】<br>
-	   	<p th:text="*{passNumber}"></p><br><br>
+		<p>【ユーザーID】</p>
+		<p class="info"  th:text="*{userId}"></p>
+		<p>【お名前】</p>
+		<p th:text="*{userName}"></p>
+    <p>【電話番号】</p>
+    <p class="info"  th:text="*{phoneNumber}"></p>
+    <p>【住所】</p>
+    <p class="info" th:text="*{address}"></p>
+    <p>【暗証番号】</p>
+    <p class="info" th:text="*{passNumber}"></p><br>
 	</div>
 	
 	<form th:action="@{/confirm-regist}" method="POST"

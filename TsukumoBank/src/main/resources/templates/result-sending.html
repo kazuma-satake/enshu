@@ -7,12 +7,12 @@
 </head>
 <body>
 	
-	<h1>お取引結果の確認</h1>
+	<h2>お取引結果の確認</h2>
 	
 	<div th:object="${taskForm}">
 	   	<br>
-		<p>【送金先】</p><p th:text="*{bankTransferId}">です</p>
-	   	【金額】<p th:text="*{valueSend}"></p><br><br>
+		<p>【送金先】</p><p class="info" th:text="*{bankTransferId}">です</p>
+	   	<p>【金額】</p><p class="info" th:text="*{valueSend}"></p><br><br>
 	</div>
 	
 	<a th:href="@{/top}">トップページに戻る</a>
