@@ -13,7 +13,18 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 	private final JdbcTemplate jdbcTemplate;
 	
 	public void add(NewUser newUser) {
+//		System.out.println("登録しました。");
+//		System.out.println(newUser);
+		
+		String sql = "insert into User_info" +
+				"(User_id, User_name, User_number, User_address, Password)" +
+				"values(?,?,?,?,?)";
+		jdbcTemplate.update(sql, newUser.getUserId(),
+								 newUser.getUserName(),
+								 newUser.getPhoneNumber(),
+								 newUser.getAddress(),
+								 newUser.getPassNumber()
+								 );
 		System.out.println("登録しました。");
-		System.out.println(newUser);
 	}
 }
