@@ -7,11 +7,11 @@
 </head>
 <body>
 	
-	<h1>お取引結果の確認</h1>
-	
+	<h2>お取引結果の確認</h2>
+	<br>
 	<div th:object="${taskForm}">
-	   	【入金額】<br>
-	   	<p th:text="*{valueDeposit}"></p><br><br>
+	   	<p>【入金額】</p>
+	   	<p class="info" th:text="*{valueDeposit}"></p><br><br>
 	</div>
 	
 	<a th:href="@{/top}">トップページに戻る</a>
