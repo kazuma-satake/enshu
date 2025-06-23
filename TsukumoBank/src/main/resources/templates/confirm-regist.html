@@ -28,6 +28,15 @@
 	    	<input type="hidden" th:field="*{passNumber}">
 	    	<input type="submit" value="登録実行" class="btn">
 	</form>
+	
+	<form th:action="@{/new-register-ret}" method="POST"
+				th:object="${newRegisterForm}">
+	    	<input type="hidden" th:field="*{userId}">
+	    	<input type="hidden" th:field="*{phoneNumber}">
+	    	<input type="hidden" th:field="*{address}">
+	    	<input type="hidden" th:field="*{passNumber}">
+	    	<input type="submit" value="もどる" class="btn">
+	</form>
 
 </body>
 </html>
