@@ -10,6 +10,7 @@ import com.example.demo.service.UserRegistService;
 
 import lombok.RequiredArgsConstructor;
 
+
 @Controller
 @RequiredArgsConstructor
 public class UserRegistController {
@@ -18,6 +19,11 @@ public class UserRegistController {
 	
 	@PostMapping("regist-review")
 	public String registerInfo(@ModelAttribute NewRegisterForm form) {
+		return "confirm-regist";
+	}
+	
+	@PostMapping("confirm-regist")
+	public String confirmRegist(@ModelAttribute NewRegisterForm form) {
 		NewUser newUser = new NewUser();
 		newUser.setUserId(form.getUserId());
 		newUser.setPhoneNumber(form.getPhoneNumber());
@@ -26,6 +32,7 @@ public class UserRegistController {
 		
 		service.regist(newUser);
 		
-		return "confirm-regist";
+		return "complete-regist";
 	}
+	
 }
