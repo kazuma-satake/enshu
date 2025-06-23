@@ -3,82 +3,119 @@
 
 
 body {
-    background: linear-gradient(90deg, #ff0055, #00aaff);
-    background-size: 200% 200%;
-	animation:3s ease-in 3s infinite alternate forwards running gradientAnimation 
+	background: linear-gradient(90deg,#440d79,#67afe6);
+	background-size: 200% 200%;
+	animation: 3s ease-in 3s infinite alternate forwards running gradientAnimation
 }
 
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+	0% {
+		background-position: 0% 50%;
+	}
+
+	100% {
+		background-position: 100% 50%;
+	}
 }
 
-#box{
-	position: fixed;
-	top: 2%;
-	left: 0%;
-	display:block;
-	width:10px;
-	height:80px;
-	background:#00aaff;
-	animation-name:expansion;
-	animation-duration:2s;
-	animation-timing-function:ease-in;
-	animation-delay:1s;
-	animation-direction:alternate;
-	animation-fill-mode:forwards;
-	animation-play-state:running;
-}
-@keyframes expansion{
-  0%{
-    width:10%;
-  }
-  100%{
-    width:100%;
-    background:#ff0055;
-  }
+
+
+.title {
+	position: relative;
+	top: 1rem;
+	text-align: center;
+	font-size: 50px;
+	font-family: MS PGothic;
+	color: #ffffff;
+	animation: bounce 1s infinite;
 }
 
-h1{
-	color: white;
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+
+	30% {
+		transform: translateY(-30px);
+	}
+
+	50% {
+		transform: translateY(0);
+	}
+
+	70% {
+		transform: translateY(-15px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
 }
+
+h1 {
+	position: center;
+}
+
 
 h2 {
+	text-align: center;
 	font-size: 28px;
 	color: white;
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
 
-.title {
-	text-align: center;
-	font-size: 50px;
-	font-family:MS PGothic ;
-    color:#055d59;
-}
+
 
 .btn-primary {
-  display: inline-flex;
-  padding: 0.5em 1em;
-  font: inherit;
-  color: white;
-  text-align: left;
-  background-color: #3e8e9c;
-  border: 0;
-  border-radius: 0.25em;
+	position: relative;
+	top: 1rem;
+	display: inline-flex;
+	padding: 0.5em 1em;
+	font: inherit;
+	color: #130c12;
+	text-align: left;
+	background-color: whitesmoke;
+	border: 0;
+	border-radius: 0.25em;
 }
 
-.topbtn {
-  display: flex;
-  justify-content: space-evenly;
+.alignment {
+	display: flex;
+	justify-content: space-around;
+	margin: 10%;
 }
 
 .btn:hover {
 	color: #5bf8ce;
-	background-color:#a2a9b1;
+	background-color: #a2a9b1;
+}
+
+.btn{
+
+	display: flex;
+	justify-content: space-evenly;
+	padding: 0.5em 1em;
+	font: inherit;
+	color: #130c12;
+	text-align: left;
+	background-color: whitesmoke;
+	border: 0;
+	border-radius: 0.25em;
+}
+
+p{
+	color: white;
+}
+
+.info{
+	color: blueviolet;
+	font: inherit;
+	font-size: 28px;
+	background-color: #ffffff;
+}
+
+a{
+	color: #ffffff;
 }
 

@@ -8,21 +8,27 @@
 </head>
 
 <body>
-	<h1>画面</h1>
-
-
+	<h2>ログイン</h2>
+	
+	<div class="alignment">
 	<form th:action="@{/select-operation}" method="POST">
-		【ユーザーID】<br>
+		<p>【ユーザーID】</p>
 		<input type="text" name="userId" required="required"><br>
 		<br>
-		【パスワード】<br>
+		<p>【パスワード】</p>
 		<input type="text" name="password" required="required"><br>
 		<br>
-		<input type="submit" value="次へ" class="btn">
 	</form>
+	</div>
 	
-	<button type="button" onclick="history.back()">戻る</button>
-
+	
+	<div class="alignment">
+		<form th:action="@{/select-operation}" method="POST">
+			<input  type="submit" value="次へ" class="btn">
+		</form>
+		<button  type="button"  class="btn" onclick="history.back()">戻る</button>
+	</div>
+	
 </body>
 
 </html>

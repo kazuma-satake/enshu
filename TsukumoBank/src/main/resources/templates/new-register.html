@@ -8,24 +8,21 @@
 </head>
 
 <body>
-	<h1>画面</h1>
+	<h2>登録画面</h2>
 
 
 	<form th:action="@{/regist-review}" method="POST"
 		th:object="${newRegisterForm}">
-		【ユーザーID】<br>
+		<p>【ユーザーID】</p>
 		<input type="text" th:field="*{userId}"
 			required="required"><br>
-		<br>
-		【電話番号】<br>
+			<p>【電話番号】</p>
 		<input type="text" th:field="*{phoneNumber}"
 			required="required"><br>
-		<br>
-		【住所】<br>
+		<p>【住所】</p>
 		<input type="text" th:field="*{address}"
 			required="required"><br>
-		<br>
-		【暗証番号】<br>
+		<p>【暗証番号】</p>
 		<input type="text" th:field="*{passNumber}"
 			required="required"><br>
 		<br>

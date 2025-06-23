@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>入金</title>
-<link rel="stylesheet" th:href="@{/css/style.css}">
+	<meta charset="UTF-8">
+	<title>入金</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
-	
-	<form th:action="@{/result-deposit}" method="POST">
-		【入金額】<br>
-		<input type="text" name="valueDeposit" required="required"><br>
+
+
+	<div class="alignment">
+		<form th:action="@{/result-deposit}" method="POST">
+			<p>【入金額】</p>
+			<input type="text" name="valueDeposit" required="required"><br>
 			<br>
-		<input type="submit" value="次へ" class="btn">
-	</form>
+		</form>
+	</div>
+	<div class="alignment">
+		<form th:action="@{/result-deposit}" method="POST">
+			<input type="submit" value="次へ" class="btn">
+		</form>
+		<button type="button" class="btn" onclick="history.back()">戻る</button>
+	</div>
 
 </body>
+
 </html>
