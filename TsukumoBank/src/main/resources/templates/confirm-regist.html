@@ -12,6 +12,8 @@
 	<div th:object="${newRegisterForm}">
 		【ユーザーID】<br>
 		<p th:text="*{userId}"></p><br><br>
+		【お名前】<br>
+		<p th:text="*{userName}"></p><br><br>
 	   	【電話番号】<br>
 	   	<p th:text="*{phoneNumber}"></p><br><br>
 	   	【住所】<br>
@@ -23,6 +25,7 @@
 	<form th:action="@{/confirm-regist}" method="POST"
 				th:object="${newRegisterForm}">
 	    	<input type="hidden" th:field="*{userId}">
+			<input type="hidden" th:field="*{userName}">
 	    	<input type="hidden" th:field="*{phoneNumber}">
 	    	<input type="hidden" th:field="*{address}">
 	    	<input type="hidden" th:field="*{passNumber}">
@@ -32,6 +35,7 @@
 	<form th:action="@{/new-register-ret}" method="POST"
 				th:object="${newRegisterForm}">
 	    	<input type="hidden" th:field="*{userId}">
+			<input type="hidden" th:field="*{userName}">
 	    	<input type="hidden" th:field="*{phoneNumber}">
 	    	<input type="hidden" th:field="*{address}">
 	    	<input type="hidden" th:field="*{passNumber}">

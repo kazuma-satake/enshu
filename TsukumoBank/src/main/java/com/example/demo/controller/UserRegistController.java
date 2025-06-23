@@ -26,6 +26,7 @@ public class UserRegistController {
 	public String confirmRegist(@ModelAttribute NewRegisterForm form) {
 		NewUser newUser = new NewUser();
 		newUser.setUserId(form.getUserId());
+		newUser.setUserName(form.getUserName());
 		newUser.setPhoneNumber(form.getPhoneNumber());
 		newUser.setAddress(form.getAddress());
 		newUser.setPassNumber(form.getPassNumber());
