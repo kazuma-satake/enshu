@@ -1,11 +1,11 @@
-package com.example.demo.form;
+package com.example.demo.entity;
 
 import lombok.Data;
 
 @Data
-public class NewRegister {
+public class NewUser {
 	private String userId;
 	private String phoneNumber;
 	private String address;
-	private String passNumber;
-}
+	private String passNumber; 
+} 
