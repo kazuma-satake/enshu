@@ -8,9 +8,12 @@
 </head>
 
 <body>
-
+	<div th:object="${loginForm}">
+		<h1>ようこそ</h1>
+		<h1 th:text="*{userId}"></h1>
+	</div>
 	<h2>お取引の選択</h2>
-
+		
 	<div class="alignment">
 		<form th:action="@{/deposit}" method="POST">
 			<input type="submit" value="入金" class="btn">
