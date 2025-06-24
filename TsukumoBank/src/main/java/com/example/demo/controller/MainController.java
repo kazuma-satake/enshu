@@ -5,19 +5,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.form.LoginForm;
 import com.example.demo.form.NewRegisterForm;
 
 
 
 @Controller
 public class MainController {
+	@GetMapping("/")
+	public String showMainMenustd() {
+		return "/top";
+	}
 	@GetMapping("top")
 	public String showMainMenu() {
 		return "/top";
 	}
 	//Tsukumo
 	@GetMapping("login")
-	public String goLogin() {
+	public String goLogin(Model model) {
+		model.addAttribute("loginForm", new LoginForm());
 		return "login";
 	}
 	
