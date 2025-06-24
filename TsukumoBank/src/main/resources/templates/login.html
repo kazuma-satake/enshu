@@ -11,7 +11,7 @@
 	<h2>ログイン</h2>
 	
 	<div class="alignment">
-	<form th:action="@{/select-operation}" method="POST"
+	<form th:action="@{/user_search}" method="POST"
 			th:object="${loginForm}">
 		<p>【ユーザーID】</p>
 		<input type="text" th:field="*{userId}" required="required"><br>

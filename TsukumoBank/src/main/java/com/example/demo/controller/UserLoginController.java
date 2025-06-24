@@ -21,9 +21,11 @@ public class UserLoginController{
 		
 		Boolean result = service.findByActiveTrue(form.getUserId(),form.getPassNumber());
 		
-		model.addAttribute("result",result);
-		
-		return "user-result";
-		
+		if(result) {
+			model.addAttribute("userId", form.getUserId());
+			return "select-operation";
+		} else {
+			return "user-notFound";
+		}	
 	}
 }

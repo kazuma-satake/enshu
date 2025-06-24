@@ -18,9 +18,9 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
 				"SELECT EXISTS (									" +
 						"SELECT 1								" +
 						"FROM									" +
-						"	user_accounts ua					" +
+						"	user_info ui					" +
 						"WHERE									" +
-						"	ua.User_id = ?	AND ua.Password = ?	" +
+						"	ui.User_id = ?	AND ui.Password = ?	" +
 				")";
 		
 		Boolean result = jdbcTemplate.queryForObject(sql,Boolean.class, userId, passNumber);
