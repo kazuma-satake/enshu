@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.LoginForm;
@@ -34,9 +35,9 @@ public class MainController {
     }
 	
 	@PostMapping("new-register-ret")
-    public String newRegisterRet(Model model) {
-        model.addAttribute("newRegisterForm", new NewRegisterForm());
-        return "new-register";
-    }
+	public String newRegisterRet(@ModelAttribute NewRegisterForm newRegisterForm, Model model) {
+	    model.addAttribute("newRegisterForm", newRegisterForm);
+	    return "new-register";
+	}
 	
 }
