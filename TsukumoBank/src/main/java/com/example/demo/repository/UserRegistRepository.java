@@ -4,4 +4,5 @@ import com.example.demo.entity.NewUser;
 
 public interface UserRegistRepository {
 	public void add(NewUser newUser);
+	public Boolean userIdCheack(String userId);
 }

@@ -14,8 +14,14 @@ public class UserRegistServiceImpl implements UserRegistService {
 	private final UserRegistRepository repository;
 
 	@Override
-	public void regist(NewUser newUser) {
-		repository.add(newUser);
+	public String regist(NewUser newUser) {
+		if(!repository.userIdCheack(newUser.getUserId())) {
+			repository.add(newUser);
+			return "complete-regist";
+		} else {
+			return "faildUserRegister";
+		}
+		
 	}
 
 }

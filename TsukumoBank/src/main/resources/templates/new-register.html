@@ -14,20 +14,17 @@
 	<form th:action="@{/regist-review}" method="POST"
 		th:object="${newRegisterForm}">
 		<p>【ユーザーID】</p>
-		<input type="text" th:field="*{userId}"
-			required="required"><br>
+		<input type="text" th:field="*{userId}" required="required">
+<!--			<p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="error-message"></p>-->
+		<br>
 		<p>【お名前】</p>
-		<input type="text" th:field="*{userName}"
-			required="required"><br>
+		<input type="text" th:field="*{userName}" required="required"><br>
 		<p>【電話番号】</p>
-		<input type="text" th:field="*{phoneNumber}"
-			required="required"><br>
+		<input type="text" th:field="*{phoneNumber}" required="required"><br>
 		<p>【住所】</p>
-		<input type="text" th:field="*{address}"
-			required="required"><br>
+		<input type="text" th:field="*{address}" required="required"><br>
 		<p>【暗証番号】</p>
-		<input type="password" th:field="*{passNumber}"
-			required="required"><br>
+		<input type="password" th:field="*{passNumber}" required="required"><br>
 		<br>
 		<input type="submit" value="次へ" class="btn">
 	</form>

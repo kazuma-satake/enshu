@@ -31,9 +31,7 @@ public class UserRegistController {
 		newUser.setAddress(form.getAddress());
 		newUser.setPassNumber(form.getPassNumber());
 		
-		service.regist(newUser);
-		
-		return "complete-regist";
+		return service.regist(newUser);
 	}
 	
 }

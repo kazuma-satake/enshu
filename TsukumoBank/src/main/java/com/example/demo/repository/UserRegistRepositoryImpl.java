@@ -12,6 +12,20 @@ import lombok.RequiredArgsConstructor;
 public class UserRegistRepositoryImpl implements UserRegistRepository {
 	private final JdbcTemplate jdbcTemplate;
 	
+	public Boolean userIdCheack(String userId) {
+		String sql =
+				"SELECT EXISTS (									" +
+						"SELECT 1								" +
+						"FROM									" +
+						"	user_info ui					" +
+						"WHERE									" +
+						"	ui.User_id = ?" +
+				")";
+		Boolean result = jdbcTemplate.queryForObject(sql,Boolean.class, userId);
+		
+		return result;
+	}
+	
 	public void add(NewUser newUser) {
 //		System.out.println("登録しました。");
 //		System.out.println(newUser);
