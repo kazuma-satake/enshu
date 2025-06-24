@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -20,7 +21,7 @@ public class UserLoginController{
 		
 		Boolean result = service.findByActiveTrue(form.getUserId(),form.getPassNumber());
 		
-		model.addAttribute("userlist",result);
+		model.addAttribute("result",result);
 		
 		return "user-result";
 		

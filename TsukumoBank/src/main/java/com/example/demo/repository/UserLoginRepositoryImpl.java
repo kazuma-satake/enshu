@@ -15,7 +15,7 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
 	public Boolean findByActiveTrue(String userId, String passNumber) {
 		
 		String sql =
-				"SELEC EXISTS (									" +
+				"SELECT EXISTS (									" +
 						"SELECT 1								" +
 						"FROM									" +
 						"	user_accounts ua					" +
@@ -24,9 +24,6 @@ public class UserLoginRepositoryImpl implements UserLoginRepository {
 				")";
 		
 		Boolean result = jdbcTemplate.queryForObject(sql,Boolean.class, userId, passNumber);
-		
-		
-		
 		
 		return result;
 	}
