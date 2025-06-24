@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -13,28 +15,31 @@ public class TaskController {
 //	public String showSelectOperation() {
 //		return "select-operation";
 //	}
-	@PostMapping("deposit")
-	public String showDeposit(@ModelAttribute TaskForm form) {
+	@GetMapping("deposit")
+	public String showDeposit(Model model) {
+		model.addAttribute("taskForm", new TaskForm());
 		return "deposit";
 	}
 	
-	@PostMapping("withdrawal")
-	public String showWithdrawal(@ModelAttribute TaskForm form) {
+	@PostMapping("result-deposit")
+	public String showResultDepo(@ModelAttribute TaskForm form, Model model) {
+		model.addAttribute("taskForm", form);
+		return "result-deposit";
+	}
+	
+	@GetMapping("withdrawal")
+	public String showWithdrawal(Model model) {
 		return "withdrawal";
 	}
 	
-	@PostMapping("sending")
-	public String showSending(@ModelAttribute TaskForm form) {
-		return "sending";
-	}
-	
-	@PostMapping("result-deposit")
-	public String showResultDepo(@ModelAttribute TaskForm form) {
-		return "result-deposit";
-	}
 	@PostMapping("result-withdrawal")
 	public String showResultWith(@ModelAttribute TaskForm form) {
 		return "result-withdrawal";
+	}
+	
+	@GetMapping("sending")
+	public String showSending(Model model) {
+		return "sending";
 	}
 	
 	@PostMapping("result-sending")

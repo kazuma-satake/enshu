@@ -13,12 +13,11 @@
 	<div class="alignment">
 		<form th:action="@{/result-deposit}" method="POST" th:object="${taskForm}">
 			<p>【入金額】</p>
-			<input type="text" name="valueDeposit" required="required"><br>
+			<input type="text" th:field="*{valueDeposit}" required="required"><br>
 			<br>
 			<div class="alignment">
 				<button type="button" class="btn" onclick="history.back()">戻る</button>
 				<input type="submit" value="次へ" class="btn">
-				
 			</div>
 		</form>
 	</div>
