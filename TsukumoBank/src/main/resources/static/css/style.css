@@ -18,8 +18,6 @@ body {
 	}
 }
 
-
-
 .title {
 	position: relative;
 	top: 1rem;
@@ -53,7 +51,15 @@ body {
 }
 
 h1 {
-	position: center;
+	
+}
+
+.loginuser {
+	text-align: left;
+	color: white;
+	font-size: 15px;
+	color: #5bf8ce;
+	outline: #440d79;
 }
 
 
