@@ -46,6 +46,4 @@ public class TaskController {
 	public String showResultSend(@ModelAttribute TaskForm form) {
 		return "result-sending";
 	}
-	
-
 }

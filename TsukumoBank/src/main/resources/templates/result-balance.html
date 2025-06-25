@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>残高照会</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:object="${balanceForm}">
+		<p> 【口座残高】 </p>
+		<p th:text="*{valueBalance}"></p>
+	</div>
+	
+</body>
+</html>

@@ -25,6 +25,11 @@
 		<form th:action="@{/sending}" method="GET">
 			<input type="submit" value="送金" class="btn">
 		</form>
+		
+		<br>
+		<form th:action="@{/balance}" method="POST" th:object="${balanceForm}">
+			<input type="submit" value="残高照会" class="btn">
+		</form>
 	</div>
 </body>
 
