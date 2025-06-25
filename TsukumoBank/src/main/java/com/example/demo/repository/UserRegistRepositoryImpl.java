@@ -30,6 +30,9 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 //		System.out.println("登録しました。");
 //		System.out.println(newUser);
 		
+		HashedString hs = new HashedString();
+		String hashedpassNumber = hs.hashe_sha256(newUser.getPassNumber());
+		
 		String sql = "insert into User_info" +
 				"(User_id, User_name, User_number, User_address, Password)" +
 				"values(?,?,?,?,?)";
@@ -37,7 +40,7 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 								 newUser.getUserName(),
 								 newUser.getPhoneNumber(),
 								 newUser.getAddress(),
-								 newUser.getPassNumber()
+								 hashedpassNumber
 								 );
 		System.out.println("登録しました。");
 	}
