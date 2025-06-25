@@ -14,7 +14,7 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 	private final BalanceManagementRepository repository;
 	
 	public Balance getValueBalance(Balance balance) {
-		balance.setValueBalance(repository.getValue(balance).getValueBalance());
-		return balance;
+		Balance result = repository.getValue(balance);
+		return result;
 	}
 }

@@ -14,6 +14,20 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 	private final JdbcTemplate jdbcTemplate;
 	
 	public Balance getValue(Balance balance) {
+		String sql =
+				"SELECT Balance								" +
+				"FROM									" +
+				"	balance_info				" +
+				"WHERE									" +
+				"	User_id = ?" ;
+		
+		int result = jdbcTemplate.queryForObject(sql, Integer.class, balance.getUserId());
+		
+		if (result >= 0) {
+            balance.setValueBalance(result);
+        } else {
+            
+        }
 		
 		return balance;
 	}
