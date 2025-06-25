@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.entity.Balance;
 import com.example.demo.form.LoginForm;
 import com.example.demo.service.UserLoginService;
 
@@ -22,7 +23,10 @@ public class UserLoginController{
 		Boolean result = service.findByActiveTrue(form.getUserId(),form.getPassNumber());
 		
 		if(result) {
+			Balance balance = new Balance();
+			balance.setUserId(form.getUserId());
 			model.addAttribute("userId", form.getUserId());
+			model.addAttribute("balanceForm", balance);
 			return "select-operation";
 		} else {
 			return "user-notFound";

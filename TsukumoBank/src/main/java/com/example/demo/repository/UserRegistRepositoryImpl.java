@@ -33,15 +33,18 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 		HashedString hs = new HashedString();
 		String hashedpassNumber = hs.hashe_sha256(newUser.getPassNumber());
 		
-		String sql = "insert into User_info" +
+		String sql1 = "insert into User_info" +
 				"(User_id, User_name, User_number, User_address, Password)" +
 				"values(?,?,?,?,?)";
-		jdbcTemplate.update(sql, newUser.getUserId(),
+		jdbcTemplate.update(sql1, newUser.getUserId(),
 								 newUser.getUserName(),
 								 newUser.getPhoneNumber(),
 								 newUser.getAddress(),
 								 hashedpassNumber
 								 );
+		String sql2 = "insert into balance_info(User_id, Balance) values(?,?)";
+		jdbcTemplate.update(sql2, newUser.getUserId(), 0);
+		
 		System.out.println("登録しました。");
 	}
 }

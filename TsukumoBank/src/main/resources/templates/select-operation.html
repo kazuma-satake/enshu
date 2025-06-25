@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>機能選択</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <title>機能選択</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-	<div th:object="${loginForm}">
-		<h1 class="loginuser">ようこそ<span th:text="*{userId}"></span>さん</h1>
-	</div>
-	<h2>お取引の選択</h2>
-		
-	<div class="alignment">
-		<form th:action="@{/deposit}" method="GET">
-			<input type="submit" value="入金" class="btn">
-		</form>
+    <div>
+        <h1 class="loginuser">ようこそ<span th:text="${userId}"></span>さん</h1>
+    </div>
+    <h2>お取引の選択</h2>
 
-		<form th:action="@{/withdrawal}" method="GET">
-			<input type="submit" value="出金" class="btn">
-		</form>
+    <div class="alignment">
+        <form th:action="@{/deposit}" method="GET">
+            <input type="submit" value="入金" class="btn">
+        </form>
 
-		<form th:action="@{/sending}" method="GET">
-			<input type="submit" value="送金" class="btn">
-		</form>
-		
-		<br>
-		<form th:action="@{/balance}" method="POST" th:object="${balanceForm}">
-			<input type="submit" value="残高照会" class="btn">
-		</form>
-	</div>
+        <form th:action="@{/withdrawal}" method="GET">
+            <input type="submit" value="出金" class="btn">
+        </form>
+
+        <form th:action="@{/sending}" method="GET">
+            <input type="submit" value="送金" class="btn">
+        </form>
+
+        <br>
+        <form th:action="@{/balance}" method="POST" th:object="${balanceForm}">
+            <input type="hidden" th:field="*{userId}">
+            <input type="submit" value="残高照会" class="btn">
+        </form>
+    </div>
 </body>
 
 </html>
