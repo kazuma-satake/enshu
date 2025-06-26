@@ -9,9 +9,12 @@
 	
 	<h2>お取引結果の確認</h2>
 	<br>
-	<div th:object="${taskForm}">
+	<div th:object="${balanceForm}">
 	   	<p>【出金額】</p>
-	   	<p class="info" th:text="*{valueWithdrawal}"></p><br><br>
+	   	<p class="info" th:text="*{amount}"></p><br><br>
+		
+		<p>【口座残高】</p>
+		<p class="info" th:text="*{valueBalance}"></p><br><br>
 	</div>
 	
 	<a th:href="@{/top}">トップページに戻る</a>

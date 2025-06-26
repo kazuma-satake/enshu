@@ -22,6 +22,9 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 		case "deposit":
 			result = deposit(balance);
 			break;
+		case "withdrawal":
+			result = withdrawal(balance);
+			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + balance.getType());
 		}
@@ -40,7 +43,12 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 		return result;
 	}
 	
+	
 	public Balance withdrawal(Balance balance) {
+		balance.setValueBalance(repository.getBalance(balance).getValueBalance());
+		if(balance.getValueBalance() < balance.getAmount()) return balance = null;
+		
+		result = repository.withdrawal(balance);
 		return result;
 	}
 }

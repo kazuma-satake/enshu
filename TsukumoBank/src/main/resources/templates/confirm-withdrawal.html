@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h2>入力内容確認</h2>
+	
+	<div th:object="${balanceForm}">
+		<p>【出金額】</p>
+		<p class="info" th:text="*{amount}"></p>
+	</div>
+	
+	<div>
+		<form th:action="@{/result-withdrawal}" method="POST" th:object="${balanceForm}">
+			<input type="hidden" th:field="*{userId}">
+			<input type="hidden" th:field="*{type}">
+	    	<input type="hidden" th:field="*{amount}">
+	    	<input type="hidden" th:field="*{valueBalance}">
+	    	<input type="submit" value="出金する" class="btn">
+		<form>
+	</div>
+</body>
+</html>

@@ -26,15 +26,15 @@ public class TaskController {
 //		return "result-deposit";
 //	}
 	
-	@GetMapping("withdrawal")
-	public String showWithdrawal(Model model) {
-		return "withdrawal";
-	}
-	
-	@PostMapping("result-withdrawal")
-	public String showResultWith(@ModelAttribute TaskForm form) {
-		return "result-withdrawal";
-	}
+//	@GetMapping("withdrawal")
+//	public String showWithdrawal(Model model) {
+//		return "withdrawal";
+//	}
+//	
+//	@PostMapping("result-withdrawal")
+//	public String showResultWith(@ModelAttribute TaskForm form) {
+//		return "result-withdrawal";
+//	}
 	
 	@GetMapping("sending")
 	public String showSending(Model model) {
