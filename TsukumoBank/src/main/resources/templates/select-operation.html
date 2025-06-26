@@ -14,7 +14,8 @@
     <h2>お取引の選択</h2>
 
     <div class="alignment">
-        <form th:action="@{/deposit}" method="GET">
+        <form th:action="@{/deposit}" method="POST" th:object="${balanceForm}">
+			<input type="hidden" th:field="*{userId}">
             <input type="submit" value="入金" class="btn">
         </form>
 
