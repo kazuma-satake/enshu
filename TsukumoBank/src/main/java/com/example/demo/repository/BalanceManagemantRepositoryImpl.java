@@ -13,6 +13,14 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 	
 	private final JdbcTemplate jdbcTemplate;
 	
+	/***** 入出金共通SQL文 *****/
+	private final String sql_update = 
+			"UPDATE balance_info							" +
+			"SET									" +
+			"	balance = ?				" +
+			"WHERE									" +
+			"	User_id = ?" ;
+	
 	public Balance getBalance(Balance balance) {
 		String sql =
 				"SELECT Balance								" +
@@ -38,14 +46,7 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		
 		int target = valueBalance + amount;
 		
-		String sql = 
-				"UPDATE balance_info							" +
-				"SET									" +
-				"	balance = ?				" +
-				"WHERE									" +
-				"	User_id = ?" ;
-		
-		jdbcTemplate.update(sql, target, balance.getUserId());
+		jdbcTemplate.update(sql_update, target, balance.getUserId());
 		
 		balance.setValueBalance(getBalance(balance).getValueBalance());
 		
@@ -58,14 +59,7 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		
 		int target = valueBalance - amount;
 		
-		String sql = 
-				"UPDATE balance_info							" +
-				"SET									" +
-				"	balance = ?				" +
-				"WHERE									" +
-				"	User_id = ?" ;
-		
-		jdbcTemplate.update(sql, target, balance.getUserId());
+		jdbcTemplate.update(sql_update, target, balance.getUserId());
 		
 		balance.setValueBalance(getBalance(balance).getValueBalance());
 		
