@@ -53,6 +53,22 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 	}
 	
 	public Balance withdrawal(Balance balance) {
+		int valueBalance = balance.getValueBalance();
+		int amount = balance.getAmount();
+		
+		int target = valueBalance - amount;
+		
+		String sql = 
+				"UPDATE balance_info							" +
+				"SET									" +
+				"	balance = ?				" +
+				"WHERE									" +
+				"	User_id = ?" ;
+		
+		jdbcTemplate.update(sql, target, balance.getUserId());
+		
+		balance.setValueBalance(getBalance(balance).getValueBalance());
+		
 		return balance;
 	}
 }

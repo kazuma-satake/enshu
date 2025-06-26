@@ -38,6 +38,9 @@ public class BalanceController {
 		return "result-balance";
 	}
 	
+	/*******************************************/
+	/***********  入金コントローラ  ************/
+	/*******************************************/
 	@PostMapping("deposit")
 	public String deposit(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
@@ -45,7 +48,6 @@ public class BalanceController {
 		model.addAttribute("balanceForm", balance);
 		return "deposit";
 	}
-	
 	@PostMapping("confirm-deposit")
 	public String confirmDeposit(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
@@ -58,17 +60,38 @@ public class BalanceController {
 		model.addAttribute("balanceForm", result);
 		return "confirm-deposit";
 	}
-	
 	@PostMapping("result-deposit")
 	public String resultDeposit(@ModelAttribute BalanceForm form, Model model) {
-		System.out.println(form);
 		model.addAttribute("balanceForm", form);
 		return "result-deposit";
 	}
-//	
-//	@PostMapping("withdrawal")
-//	public String withdrawal(@ModelAttribute BalanceForm form, Model model) {
-//		model.addAttribute("taskForm", new TaskForm());
-//		return "deposit";
-//	}
+	
+	/*******************************************/
+	/***********  出金コントローラ  ************/
+	/*******************************************/
+	@PostMapping("withdrawal")
+	public String withdrawal(@ModelAttribute BalanceForm form, Model model) {
+		Balance balance = new Balance();
+		balance = common(form, "withdrawal");
+		model.addAttribute("balanceForm", balance);
+		return "withdrawal";
+	}
+	@PostMapping("confirm-withdrawal")
+	public String confirmWithdrawal(@ModelAttribute BalanceForm form, Model model) {
+		Balance balance = new Balance();
+		balance.setUserId(form.getUserId());
+		balance.setType(form.getType());
+		balance.setAmount(form.getAmount());
+		
+		Balance result = bs.controleType(balance);
+		if(result == null) return "overdrawn";
+		
+		model.addAttribute("balanceForm", result);
+		return "confirm-withdrawal";
+	}
+	@PostMapping("result-withdrawal")
+	public String resultWithdrawal(@ModelAttribute BalanceForm form, Model model) {
+		model.addAttribute("balanceForm", form);
+		return "result-withdrawal";
+	}
 }

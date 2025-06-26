@@ -19,7 +19,8 @@
             <input type="submit" value="入金" class="btn">
         </form>
 
-        <form th:action="@{/withdrawal}" method="GET">
+		<form th:action="@{/withdrawal}" method="POST" th:object="${balanceForm}">
+			<input type="hidden" th:field="*{userId}">
             <input type="submit" value="出金" class="btn">
         </form>
 
