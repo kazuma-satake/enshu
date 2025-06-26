@@ -13,7 +13,7 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 	
 	private final JdbcTemplate jdbcTemplate;
 	
-	public Balance getValue(Balance balance) {
+	public Balance getBalance(Balance balance) {
 		String sql =
 				"SELECT Balance								" +
 				"FROM									" +
@@ -29,6 +29,30 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
             
         }
 		
+		return balance;
+	}
+	
+	public Balance deposit(Balance balance) {
+		int valueBalance = balance.getValueBalance();
+		int amount = balance.getAmount();
+		
+		int target = valueBalance + amount;
+		
+		String sql = 
+				"UPDATE balance_info							" +
+				"SET									" +
+				"	balance = ?				" +
+				"WHERE									" +
+				"	User_id = ?" ;
+		
+		jdbcTemplate.update(sql, target, balance.getUserId());
+		
+		balance.setValueBalance(getBalance(balance).getValueBalance());
+		
+		return balance;
+	}
+	
+	public Balance withdrawal(Balance balance) {
 		return balance;
 	}
 }

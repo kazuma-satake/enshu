@@ -15,17 +15,16 @@ public class TaskController {
 //	public String showSelectOperation() {
 //		return "select-operation";
 //	}
-	@GetMapping("deposit")
-	public String showDeposit(Model model) {
-		model.addAttribute("taskForm", new TaskForm());
-		return "deposit";
-	}
-	
-	@PostMapping("result-deposit")
-	public String showResultDepo(@ModelAttribute TaskForm form, Model model) {
-		model.addAttribute("taskForm", form);
-		return "result-deposit";
-	}
+//	@GetMapping("deposit")
+//	public String showDeposit(Model model) {
+//		model.addAttribute("taskForm", new TaskForm());
+//		return "deposit";
+//	}
+//	@PostMapping("result-deposit")
+//	public String showResultDepo(@ModelAttribute TaskForm form, Model model) {
+//		model.addAttribute("taskForm", form);
+//		return "result-deposit";
+//	}
 	
 	@GetMapping("withdrawal")
 	public String showWithdrawal(Model model) {
