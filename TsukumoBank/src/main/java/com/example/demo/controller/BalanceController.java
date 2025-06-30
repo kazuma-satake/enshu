@@ -1,11 +1,14 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Balance;
+import com.example.demo.entity.History;
 import com.example.demo.form.BalanceForm;
 import com.example.demo.service.BalanceManagementService;
 
@@ -102,7 +105,9 @@ public class BalanceController {
 	/************************************************/
 	@PostMapping("history")
 	public String showHistory(@ModelAttribute BalanceForm form, Model model) {
-		System.out.println(form.getUserId());
+		String userId = form.getUserId();
+		List<History> result_List = bs.getHistory(userId);
+		model.addAttribute("historyList", result_List);
 		return "history";
 	}
 }

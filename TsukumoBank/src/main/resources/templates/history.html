@@ -7,7 +7,26 @@
 </head>
 <body>
 	
-	<p>history</p>
-
+	<p>取引履歴一覧</p>
+	
+	<div th:if="${#lists.isEmpty(historyList)}">
+		<p>取引履歴がありません。</p>
+	</div>
+	
+	<div th:unless="${#lists.isEmpty(historyList)}">
+		<table>
+			<tr>
+				<th>日付</th><th>取引種別</th><th>金額</th><th>口座残高</th><th>備考</th>
+			</tr>
+		
+			<tr th:each="history : ${historyList}">
+				<td th:text="${history.date}"></td>
+				<td th:text="${history.type}"></td>
+				<td th:text="${#numbers.formatInteger(history.amount, 1, 'COMMA')}"></td>
+				<td th:text="${#numbers.formatInteger(history.balance, 1, 'COMMA')}"></td>
+				<td th:text="${history.remarks}"></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
