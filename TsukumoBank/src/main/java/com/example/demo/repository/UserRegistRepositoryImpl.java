@@ -43,12 +43,12 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 		String tableName = newUser.getUserId();
 		String sql_createHistoryTable = 
 				"CREATE TABLE " + tableName + " ("
-				+ "User_id VARCHAR(255) NOT NULL PRIMARY KEY, "
-				+ "Amount INTEGER NOT NULL, "
-				+ "Date TIMESTAMP NOT NULL, "
-				+ "Balance BIGINT NOT NULL,"
-				+ "Remarks VARCHAR(255),"
-				+ "FOREIGN KEY (User_id) REFERENCES User_info(User_id))";
+				+ "id MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY,"
+				+ "Date timestamp not null, "
+				+ "Type varchar(32) not null, "
+				+ "Amount integer not null, "
+				+ "Balance bigint not null,"
+				+ "Remarks varchar(255))";
 		
 		jdbcTemplate.update(sql_createUserInfo, newUser.getUserId(),
 								 newUser.getUserName(),

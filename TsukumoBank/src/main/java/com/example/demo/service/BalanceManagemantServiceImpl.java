@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Balance;
+import com.example.demo.entity.History;
 import com.example.demo.repository.BalanceManagementRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -20,9 +23,11 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 			result = getBalance(balance);
 			break;
 		case "deposit":
+			balance.setType("預入");
 			result = deposit(balance);
 			break;
 		case "withdrawal":
+			balance.setType("引出");
 			result = withdrawal(balance);
 			break;
 		default:
@@ -50,5 +55,10 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 		
 		result = repository.withdrawal(balance);
 		return result;
+	}
+	
+	public List<History> getHistory(String userId){
+		List<History> list = repository.getHistories(userId);
+		return list;
 	}
 }
