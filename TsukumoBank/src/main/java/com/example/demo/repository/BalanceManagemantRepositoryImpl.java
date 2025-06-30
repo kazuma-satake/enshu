@@ -13,7 +13,9 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 	
 	private final JdbcTemplate jdbcTemplate;
 	
+	/***************************/
 	/***** 入出金共通SQL文 *****/
+	/***************************/
 	private final String sql_update = 
 			"UPDATE balance_info							" +
 			"SET									" +

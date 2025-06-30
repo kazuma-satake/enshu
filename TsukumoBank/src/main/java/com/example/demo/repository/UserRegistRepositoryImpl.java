@@ -33,17 +33,33 @@ public class UserRegistRepositoryImpl implements UserRegistRepository {
 		HashedString hs = new HashedString();
 		String hashedpassNumber = hs.hashe_sha256(newUser.getPassNumber());
 		
-		String sql1 = "insert into User_info" +
+		String sql_createUserInfo = "insert into User_info" +
 				"(User_id, User_name, User_number, User_address, Password)" +
 				"values(?,?,?,?,?)";
-		jdbcTemplate.update(sql1, newUser.getUserId(),
+		
+		String sql_createUserBalanceInfo = "insert into balance_info(User_id, Balance) values(?,?)";
+		
+		
+		String tableName = newUser.getUserId();
+		String sql_createHistoryTable = 
+				"CREATE TABLE " + tableName + " ("
+				+ "User_id VARCHAR(255) NOT NULL PRIMARY KEY, "
+				+ "Amount INTEGER NOT NULL, "
+				+ "Date TIMESTAMP NOT NULL, "
+				+ "Balance BIGINT NOT NULL,"
+				+ "Remarks VARCHAR(255),"
+				+ "FOREIGN KEY (User_id) REFERENCES User_info(User_id))";
+		
+		jdbcTemplate.update(sql_createUserInfo, newUser.getUserId(),
 								 newUser.getUserName(),
 								 newUser.getPhoneNumber(),
 								 newUser.getAddress(),
 								 hashedpassNumber
 								 );
-		String sql2 = "insert into balance_info(User_id, Balance) values(?,?)";
-		jdbcTemplate.update(sql2, newUser.getUserId(), 0);
+		
+		jdbcTemplate.update(sql_createUserBalanceInfo, newUser.getUserId(), 0);
+		
+		jdbcTemplate.execute(sql_createHistoryTable);
 		
 		System.out.println("登録しました。");
 	}
