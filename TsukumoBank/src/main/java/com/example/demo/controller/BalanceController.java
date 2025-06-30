@@ -17,7 +17,9 @@ public class BalanceController {
 	
 	private final BalanceManagementService bs;
 	
-	//共通処理
+	/***************************************************/
+	/************  ID・タスクタイプset関数  ************/
+	/***************************************************/
 	public Balance common(BalanceForm form, String type) {
 		Balance balance = new Balance();
 		
@@ -38,9 +40,9 @@ public class BalanceController {
 		return "result-balance";
 	}
 	
-	/*******************************************/
-	/***********  入金コントローラ  ************/
-	/*******************************************/
+	/********************************************/
+	/************  入金コントローラ  ************/
+	/********************************************/
 	@PostMapping("deposit")
 	public String deposit(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
@@ -66,9 +68,9 @@ public class BalanceController {
 		return "result-deposit";
 	}
 	
-	/*******************************************/
-	/***********  出金コントローラ  ************/
-	/*******************************************/
+	/********************************************/
+	/************  出金コントローラ  ************/
+	/********************************************/
 	@PostMapping("withdrawal")
 	public String withdrawal(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
@@ -93,5 +95,14 @@ public class BalanceController {
 	public String resultWithdrawal(@ModelAttribute BalanceForm form, Model model) {
 		model.addAttribute("balanceForm", form);
 		return "result-withdrawal";
+	}
+	
+	/************************************************/
+	/************  取引履歴コントローラ  ************/
+	/************************************************/
+	@PostMapping("history")
+	public String showHistory(@ModelAttribute BalanceForm form, Model model) {
+		System.out.println(form.getUserId());
+		return "history";
 	}
 }
