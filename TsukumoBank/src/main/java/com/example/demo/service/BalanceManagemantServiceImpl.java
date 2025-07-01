@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Balance;
 import com.example.demo.entity.History;
+import com.example.demo.entity.Sending;
 import com.example.demo.repository.BalanceManagementRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -55,6 +56,10 @@ public class BalanceManagemantServiceImpl implements BalanceManagementService {
 		
 		result = repository.withdrawal(balance);
 		return result;
+	}
+	
+	public Balance send(Sending sending) {
+		return repository.send(sending);
 	}
 	
 	public List<History> getHistory(String userId){

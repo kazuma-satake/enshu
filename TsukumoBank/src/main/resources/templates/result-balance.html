@@ -6,10 +6,15 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-	<div th:object="${balanceForm}">
+	<div class="alignment" th:object="${balanceForm}">
 		<p> 【口座残高】 </p>
-		<p th:text="*{valueBalance}"></p>
+		<p th:text="${#numbers.formatInteger(balanceForm.valueBalance, 1, 'COMMA')}"></p>
 	</div>
+	
+	<div class="alignment">
+		<button  type="button"  class="btn" onclick="history.back()">戻る</button>
+	</div>
+	
 	
 </body>
 </html>

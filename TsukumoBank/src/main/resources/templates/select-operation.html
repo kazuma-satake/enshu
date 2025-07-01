@@ -24,7 +24,8 @@
             <input type="submit" value="出金" class="btn">
         </form>
 
-        <form th:action="@{/sending}" method="GET">
+        <form th:action="@{/sending}" method="POST" th:object="${sendingForm}">
+			<input type="hidden" th:field="*{userId}">
             <input type="submit" value="送金" class="btn">
         </form>
 		

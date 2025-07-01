@@ -89,7 +89,7 @@ h2 {
 .alignment {
 	display: flex;
 	justify-content: space-around;
-	margin: 10%;
+/*	margin: 10%;*/
 }
 
 .btn:hover {

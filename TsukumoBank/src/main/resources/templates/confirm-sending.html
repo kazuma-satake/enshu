@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h2>入力内容確認</h2>
+		
+		<div th:object="${sendingForm}">
+			<p>【振込先ユーザID】</p>
+			<p class="info" th:text="*{forwarding_userId}"></p>
+			<p>【振込金額】</p>
+			<p class="info" th:text="*{amount}"></p>
+		</div>
+		
+		<div>
+			<form th:action="@{/result-sending}" method="POST" th:object="${sendingForm}">
+				<input type="hidden" th:field="*{userId}">
+		    	<input type="hidden" th:field="*{amount}">
+		    	<input type="hidden" th:field="*{forwarding_userId}">
+		    	<input type="submit" value="振込確定" class="btn">
+			<form>
+		</div>
+		
+		<a th:href="@{/top}">トップページに戻る</a>
+</body>\
+</html>

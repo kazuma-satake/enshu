@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.Balance;
 import com.example.demo.entity.History;
+import com.example.demo.entity.Sending;
 
 import lombok.RequiredArgsConstructor;
 
@@ -82,6 +83,19 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		
 		return balance;
 	}
+	public Balance deposit(Balance balance, String to_user) {
+		int valueBalance = balance.getValueBalance();
+		int amount = balance.getAmount();
+		
+		int target = valueBalance + amount;
+		
+		jdbcTemplate.update(sql_update, target, balance.getUserId());
+		
+		balance.setValueBalance(getBalance(balance).getValueBalance());
+		addHistory_DW(balance);
+		
+		return balance;
+	}
 	
 	public Balance withdrawal(Balance balance) {
 		int valueBalance = balance.getValueBalance();
@@ -105,6 +119,37 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 									balance.getType(),
 									balance.getAmount(),
 									balance.getValueBalance());
+	}
+	public void addHistory_DW(Balance balance, String to_user) {
+		String sql_addhistory_dw = 
+				"insert into " + balance.getUserId() + "(Date, Type, Amount, Balance, Remarks)"
+				+ "values(NOW(),?,?,?,?)";
+		jdbcTemplate.update(sql_addhistory_dw, 
+									balance.getType(),
+									balance.getAmount(),
+									balance.getValueBalance(),
+									to_user);
+	}
+	
+	public Balance send(Sending sending) {
+		Balance balance_to = new Balance();
+		Balance balance_from = new Balance();
 		
+		balance_to.setUserId(sending.getUserId());
+		balance_from.setUserId(sending.getForwarding_userId());
+		
+		balance_to.setAmount(sending.getAmount());
+		balance_from.setAmount(sending.getAmount());
+		
+		balance_to = getBalance(balance_to);
+		balance_from = getBalance(balance_from);
+		
+		balance_to.setType("送金");
+		balance_from.setType("振込");
+		
+		balance_to = withdrawal(balance_to);
+		balance_from = deposit(balance_from);
+		
+		return balance_to;
 	}
 }
