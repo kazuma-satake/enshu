@@ -40,12 +40,8 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		
 		int result = jdbcTemplate.queryForObject(sql_getbalance, Integer.class, balance.getUserId());
 		
-		if (result >= 0) {
-            balance.setValueBalance(result);
-        } else {
-            
-        }
-		
+        balance.setValueBalance(result);
+
 		return balance;
 	}
 	

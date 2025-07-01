@@ -115,6 +115,8 @@ public class BalanceController {
 		Balance balance = new Balance();
 		balance.setUserId(form.getUserId());
 		
+		balance = bs.getBalance(balance);
+		
 		if (form.getAmount() > bs.getBalance(balance).getValueBalance()) {
 			return "overdrawn";
 		}
