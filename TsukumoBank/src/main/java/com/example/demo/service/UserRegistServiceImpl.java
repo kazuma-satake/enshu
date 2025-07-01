@@ -38,7 +38,6 @@ public class UserRegistServiceImpl implements UserRegistService {
 			} else {
 				return "invalidInputUserId";
 			}
-			
 		} else {
 			return "faildUserRegister";
 		}

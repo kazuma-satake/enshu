@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Balance;
 import com.example.demo.entity.History;
+import com.example.demo.entity.Sending;
 import com.example.demo.form.BalanceForm;
+import com.example.demo.form.SendingForm;
 import com.example.demo.service.BalanceManagementService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,7 +29,6 @@ public class BalanceController {
 		Balance balance = new Balance();
 		
 		balance.setUserId(form.getUserId());
-		System.out.println(balance.getUserId());
 		balance.setType(type);
 		
 		return balance;
@@ -55,6 +56,10 @@ public class BalanceController {
 	}
 	@PostMapping("confirm-deposit")
 	public String confirmDeposit(@ModelAttribute BalanceForm form, Model model) {
+		return "confirm-deposit";
+	}
+	@PostMapping("result-deposit")
+	public String resultDeposit(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
 		balance.setUserId(form.getUserId());
 		balance.setType(form.getType());
@@ -63,11 +68,6 @@ public class BalanceController {
 		Balance result = bs.controleType(balance);
 		
 		model.addAttribute("balanceForm", result);
-		return "confirm-deposit";
-	}
-	@PostMapping("result-deposit")
-	public String resultDeposit(@ModelAttribute BalanceForm form, Model model) {
-		model.addAttribute("balanceForm", form);
 		return "result-deposit";
 	}
 	
@@ -83,6 +83,10 @@ public class BalanceController {
 	}
 	@PostMapping("confirm-withdrawal")
 	public String confirmWithdrawal(@ModelAttribute BalanceForm form, Model model) {
+		return "confirm-withdrawal";
+	}
+	@PostMapping("result-withdrawal")
+	public String resultWithdrawal(@ModelAttribute BalanceForm form, Model model) {
 		Balance balance = new Balance();
 		balance.setUserId(form.getUserId());
 		balance.setType(form.getType());
@@ -92,13 +96,44 @@ public class BalanceController {
 		if(result == null) return "overdrawn";
 		
 		model.addAttribute("balanceForm", result);
-		return "confirm-withdrawal";
-	}
-	@PostMapping("result-withdrawal")
-	public String resultWithdrawal(@ModelAttribute BalanceForm form, Model model) {
-		model.addAttribute("balanceForm", form);
 		return "result-withdrawal";
 	}
+	
+	
+	/********************************************/
+	/************  送金コントローラ  ************/
+	/********************************************/
+	@PostMapping("sending") 
+	public String sending(@ModelAttribute SendingForm form, Model model) {
+		Sending sending = new Sending();
+		sending.setUserId(form.getUserId());
+		model.addAttribute("sendingForm", sending);
+		return "sending";
+	}
+	@PostMapping("confirm-sending") 
+	public String confirmSending(@ModelAttribute SendingForm form, Model model) {
+		Balance balance = new Balance();
+		balance.setUserId(form.getUserId());
+		
+		if (form.getAmount() > bs.getBalance(balance).getValueBalance()) {
+			return "overdrawn";
+		}
+		return "confirm-sending";
+	}
+	@PostMapping("result-sending") 
+	public String resultSending(@ModelAttribute SendingForm form, Model model) {
+		Sending sending = new Sending();
+		sending.setUserId(form.getUserId());
+		sending.setAmount(form.getAmount());
+		sending.setForwarding_userId(form.getForwarding_userId());
+		
+		Balance result = bs.send(sending);
+		
+		model.addAttribute("sendingForm", sending);
+		model.addAttribute("balanceForm", result);
+		return "result-sending";
+	}
+	
 	
 	/************************************************/
 	/************  取引履歴コントローラ  ************/

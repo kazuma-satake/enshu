@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Balance;
+import com.example.demo.entity.Sending;
 import com.example.demo.form.LoginForm;
 import com.example.demo.service.UserLoginService;
 
@@ -24,9 +25,12 @@ public class UserLoginController{
 		
 		if(result) {
 			Balance balance = new Balance();
+			Sending sending = new Sending();
 			balance.setUserId(form.getUserId());
+			sending.setUserId(form.getUserId());
 			model.addAttribute("userId", form.getUserId());
 			model.addAttribute("balanceForm", balance);
+			model.addAttribute("sendingForm", sending);
 			return "select-operation";
 		} else {
 			return "user-notFound";

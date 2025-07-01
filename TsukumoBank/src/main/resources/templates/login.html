@@ -11,17 +11,19 @@
 	<h2>ログイン</h2>
 	
 	<div class="alignment">
-	<form th:action="@{/user_search}" method="POST"
-			th:object="${loginForm}">
-		<p>【ユーザーID】</p>
-		<input type="text" th:field="*{userId}" required="required"><br>
-		<br>
-		<p>【パスワード】</p>
-		<input type="password" th:field="*{passNumber}" required="required"><br>
-		<br>
-		<input  type="submit" value="次へ" class="btn">
-		<button  type="button"  class="btn" onclick="history.back()">戻る</button>
-	</form>
+		<form th:action="@{/user_search}" method="POST"
+				th:object="${loginForm}">
+			<p>【ユーザーID】</p>
+			<input type="text" th:field="*{userId}" required="required"><br>
+			<br>
+			<p>【パスワード】</p>
+			<input type="password" th:field="*{passNumber}" required="required"><br>
+			<br>
+			<div class="alignment">
+				<button  type="button"  class="btn" onclick="history.back()">戻る</button>
+				<input  type="submit" value="次へ" class="btn">
+			</div>
+		</form>
 	</div>
 </body>
 

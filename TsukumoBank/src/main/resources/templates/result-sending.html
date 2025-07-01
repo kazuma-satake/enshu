@@ -9,10 +9,14 @@
 	
 	<h2>お取引結果の確認</h2>
 	
-	<div th:object="${taskForm}">
+	<div th:object="${sendingForm}">
 	   	<br>
-		<p>【送金先】</p><p class="info" th:text="*{bankTransferId}">です</p>
-	   	<p>【金額】</p><p class="info" th:text="*{valueSend}"></p><br><br>
+		<p>【振込先ユーザID】</p><p class="info" th:text="*{forwarding_userId}"></p>
+	   	<p>【振込金額】</p><p class="info" th:text="*{amount}"></p><br><br>
+	</div>
+	
+	<div th:object="${balanceForm}">
+		<p>【あなたの口座残高】</p><p class="info" th:text="*{valueBalance}"></p><br><br>
 	</div>
 	
 	<a th:href="@{/top}">トップページに戻る</a>

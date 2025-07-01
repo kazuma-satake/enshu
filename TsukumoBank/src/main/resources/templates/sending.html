@@ -10,23 +10,20 @@
 <body>
 
 	<div class="alignment">
-		<form th:action="@{/result-sending}" method="POST">
-			<p>【振込先口座番号】</p>
-			<input type="text" name="bankTransferId" required="required"><br>
+		<form th:action="@{/confirm-sending}" th:object="${sendingForm}" method="POST">
+			<p>【振込先ユーザID】</p>
+			<input type="text" th:field="*{forwarding_userId}" required="required"><br>
 			<br>
 			<p>【振込金額】</p>
-			<input type="number" name="valueSend" required="required"><br>
+			<input type="number" th:field="*{amount}" required="required"><br>
+			<input type="hidden" th:field="*{userId}">
 			<br>
+			<div class="alignment">
+				<button type="button" class="btn" onclick="history.back()">戻る</button>
+				<input type="submit" value="次へ" class="btn">
+			</div>
 		</form>
 	</div>
-		<div class="alignment">
-			<form th:action="@{/result-sending}" method="POST">
-				<input type="submit" value="次へ" class="btn">
-			</form>
-			<button type="button" class="btn" onclick="history.back()">戻る</button>
-		</div>
-
-
 </body>
 
 </html>
