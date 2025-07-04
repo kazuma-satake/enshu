@@ -88,7 +88,7 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		jdbcTemplate.update(sql_update, target, balance.getUserId());
 		
 		balance.setValueBalance(getBalance(balance).getValueBalance());
-		addHistory_DW(balance);
+		addHistory_DW(balance, to_user);
 		
 		return balance;
 	}
@@ -144,7 +144,7 @@ public class BalanceManagemantRepositoryImpl implements BalanceManagementReposit
 		balance_from.setType("振込");
 		
 		balance_to = withdrawal(balance_to);
-		balance_from = deposit(balance_from);
+		balance_from = deposit(balance_from, sending.getUserId());
 		
 		return balance_to;
 	}
