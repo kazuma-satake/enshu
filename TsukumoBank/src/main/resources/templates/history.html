@@ -7,13 +7,13 @@
 </head>
 <body>
 	
-	<p>取引履歴一覧</p>
+	<h2>取引履歴一覧</h2>
 	
 	<div th:if="${#lists.isEmpty(historyList)}">
 		<p>取引履歴がありません。</p>
 	</div>
 	
-	<div th:unless="${#lists.isEmpty(historyList)}">
+	<div class="alignment" th:unless="${#lists.isEmpty(historyList)}">
 		<table>
 			<tr>
 				<th>日付</th><th>取引種別</th><th>金額</th><th>口座残高</th><th>備考</th>

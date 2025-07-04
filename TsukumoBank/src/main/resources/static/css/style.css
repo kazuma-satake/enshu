@@ -51,7 +51,9 @@ body {
 }
 
 h1 {
-	
+	text-align: center;
+	color: white;
+	font-size: 40px;
 }
 
 .loginuser {
@@ -126,12 +128,22 @@ a{
 }
 
 table {
-	border: 1px solid #5e696c;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%; 					/* テーブル横幅 */
-	border-collapse:  collapse; 	/* 境界線を共有 */
-	
-	text-align:center; 
+    border-collapse: separate;  /* 表の線と線の間を空ける */
+    border-spacing:  5px;       /* 表の線と線の間の幅 */
+	text-align: center;
+}
+
+th,td {
+    padding: 5px 10px;          /* 余白指定 */
+}
+
+th {
+    background-color:  #3F51B5; /* 背景色指定 */
+    color:  #fff;               /* 文字色指定 */
+    font-weight:  normal;       /* 文字の太さ指定 */
+}
+
+td {
+    background-color:  #c0c9ff; /* 背景色指定 */
 }
 
